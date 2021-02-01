@@ -1,0 +1,18 @@
+
+@ Hierarchy
+ - colour
+ - size
+
+@ Layout
+ - easy and simple to read contents
+
+@ Alignment
+ - consistency
+
+@ White Space
+ - looks more premium$ with white space
+
+@ Audience
+ - who is the target customer?
+ - your Web design needs to be changed according to customer
+ 
