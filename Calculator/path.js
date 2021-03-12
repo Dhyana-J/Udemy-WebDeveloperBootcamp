@@ -1,0 +1,1 @@
+console.log(__dirname); //__dirname : node.js에서 제공한다. 현재 파일의 경로를 문자열형태로 불러온다.
