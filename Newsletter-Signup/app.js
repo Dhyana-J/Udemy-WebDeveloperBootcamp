@@ -11,7 +11,7 @@ app.use(express.static('public')); //서버가 static file들(img,css,js, ...)�
 
 
 mailchimp.setConfig({
-    apiKey: '',
+    apiKey: 'your API Key',
     server: '',
 });
 
@@ -28,7 +28,7 @@ app.post('/',(req,res)=>{
     const lastName = req.body.lName;
     const email = req.body.email;
 
-    const listId = '';
+    const listId = 'your listId';
 
     const subscribingUser = {
         firstName:firstName,
@@ -38,29 +38,41 @@ app.post('/',(req,res)=>{
 
     const run = async ()=>{
 
-        const response = await mailchimp.lists.addListMember(listId,{
-            email_address:subscribingUser.email,
-            status:'subscribed',
-            merge_fields:{
-                FNAME:subscribingUser.firstName,
-                LNAME:subscribingUser.lastName
-            }
-        });
+        try{
+            const response = await mailchimp.lists.addListMember(listId,{
+                email_address:subscribingUser.email,
+                status:'subscribed',
+                merge_fields:{
+                    FNAME:subscribingUser.firstName,
+                    LNAME:subscribingUser.lastName
+                }
+            });
+            console.log(`Successfully added contact as an audience member. The contact's id is ${
+                response.id
+            }.`);
+            res.sendFile(`${__dirname}/success.html`);
 
-        console.log(`Successfully added contact as an audience member. The contact's id is ${
-            response.id
-        }.`);
+        } catch(err){
+            console.log(err.status);
+            
+            res.sendFile(`${__dirname}/failure.html`);
+        }
 
     };
 
     run();
 
-});//end of app.post()
+});
+
+
+app.post('/failure',(req,res)=>{
+    res.redirect('/');
+});
+
 
 app.listen('3000',()=>{
     console.log('server is running on port 3000');
 });
-
 
 
 
