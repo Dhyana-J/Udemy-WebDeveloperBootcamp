@@ -11,7 +11,7 @@ app.use(express.static('public')); //서버가 static file들(img,css,js, ...)�
 
 
 mailchimp.setConfig({
-    apiKey: 'your API Key',
+    apiKey: 'Your API Key',
     server: '',
 });
 
@@ -28,7 +28,7 @@ app.post('/',(req,res)=>{
     const lastName = req.body.lName;
     const email = req.body.email;
 
-    const listId = 'your listId';
+    const listId = 'your list Id';
 
     const subscribingUser = {
         firstName:firstName,
@@ -69,8 +69,8 @@ app.post('/failure',(req,res)=>{
     res.redirect('/');
 });
 
-
-app.listen('3000',()=>{
+// process.env.PORT|| -> heroku 호스팅을 위한 포트
+app.listen(process.env.PORT||3000,()=>{
     console.log('server is running on port 3000');
 });
 
