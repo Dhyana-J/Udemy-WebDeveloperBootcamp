@@ -1,0 +1,42 @@
+<!-- ejs는 jsp같은 느낌? 서버에서 처리된 내용을 화면에 렌더링해주기 위해 쓴다. -->
+<!-- 모든 html관련 내용은 ejs 내에서 유효하다. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+
+<div class="box" id="heading">
+    <h1><%=listTitle%></h1>
+</div>
+
+<div class="box">
+    <% todoItems.forEach((item)=>{ %>
+        <div class="item">
+            <input type="checkbox">
+            <p><%=item%></p>
+        </div>
+        <% }); %>
+        
+        <form action="/AddList" method="POST">
+            <input type="text" placeholder="write what to do" name="newItem" autocomplete="off">
+            <button type="submit" name="list" value=<%=listTitle%>>+</button>
+        </form>
+    </div>
+    
+    
+    
+</body>
+
+<footer>
+    Copyright 2018 The App Brewery
+</footer>
+
+
+</html>

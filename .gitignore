@@ -2,3 +2,6 @@ my-express-server/node_modules/
 Calculator/node_modules/
 Newsletter-Signup/node_modules/
 WeatherProject/node_modules/
+todolist-v1/node_modules/
+todolist-v1/package.json
+todolist-v1/package-lock.json
