@@ -7,3 +7,6 @@ todolist-v1/package.json
 todolist-v1/package-lock.json
 ejs-challenge/node_modules/
 FruitsProject/node_modules/
+todolist-v2/node_modules/.bin/mime
+todolist-v2/node_modules/
+Blog-with-Database/node_modules/
